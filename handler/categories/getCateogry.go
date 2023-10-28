@@ -1,4 +1,4 @@
-package handler
+package categories
 
 import (
 	"net/http"
@@ -6,7 +6,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func CreateCategoryHandler(c *gin.Context) {
+func ShowCategoryHandler(c *gin.Context) {
 	c.JSON(http.StatusOK, gin.H{
 		"message": "POST",
 	})
