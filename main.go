@@ -1,17 +1,19 @@
 package main
 
 import (
-	"fmt"
-
 	"github.com/diegoHDCz/gorental/config"
 	"github.com/diegoHDCz/gorental/router"
 )
 
+var (
+	logger *config.Logger
+)
+
 func main() {
+	logger = config.GetLogger("main")
 	err := config.Init()
 	if err != nil {
-		fmt.Println("Deu ruim no db ", err)
-		panic(err)
+		logger.Errorf("config init error: %v", err)
 		return
 	}
 	router.Initialize()
